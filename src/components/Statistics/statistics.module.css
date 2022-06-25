@@ -1,0 +1,14 @@
+
+.item {
+    display: flex;
+    align-items: center;
+
+    
+}
+.item:not(:last-child){
+    margin-bottom: 5px;
+}
+.label {
+margin-left: 10px;
+font-weight: 700;
+}

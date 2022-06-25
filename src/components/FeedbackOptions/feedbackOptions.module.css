@@ -1,0 +1,21 @@
+.btn {
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px 30px;
+
+    border: 1px solid transparent;
+    border-radius: 5px;
+
+    cursor: pointer;
+    transition: background-color 250ms linear, color 250ms liner;
+}
+
+.btn:hover {
+    background-color: black;
+    color: white;
+}
+
+.btn:not(:last-child) {
+    margin-right: 10px;
+}
