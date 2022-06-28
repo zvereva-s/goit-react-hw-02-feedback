@@ -17,8 +17,7 @@ export default class App extends Component {
     bad: 0,
   };
 
-  onLeaveFeedback = ({ target }) => {
-    const { name } = target;
+  onLeaveFeedback = (name) => {
     this.setState(prevState => {
       return {
         [name]: prevState[name] + 1,
@@ -42,7 +41,7 @@ export default class App extends Component {
 
   render() {
     const { good, neutral, bad } = this.state;
-    const { total, positivePercentage } = this;
+    const { total, positivePercentage, onLeaveFeedback} = this;
     const names = Object.keys(this.state);
     
 
@@ -51,7 +50,7 @@ export default class App extends Component {
         <Section title="Please leave feedback">
           <FeedbackOptions
             options={names}
-            onLeaveFeedback={this.onLeaveFeedback}
+            onLeaveFeedback={onLeaveFeedback}
           />
         </Section>
         {total ? (
