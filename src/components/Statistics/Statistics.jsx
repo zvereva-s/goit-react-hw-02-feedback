@@ -27,13 +27,7 @@ function Statistics({ good, neutral, bad, total, positivePercentage }) {
     </ul>
   );
 }
-Statistics.defaultProps = {
-  good: 0,
-  neutral: 0,
-  bad: 0,
-  total: 0,
-  positivePercentage: 0,
-}
+
 Statistics.propTypes = {
   good: PropTypes.number.isRequired,
   neutral: PropTypes.number.isRequired,

@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import shortid from 'shortid';
+import { nanoid } from 'nanoid';
 import styles from './feedbackOptions.module.css';
 
 function FeedbackOptions({options, onLeaveFeedback}) {
   return (
     <>
       {options.map((option) => (
-        <button key={shortid.generate()}
+        <button key={nanoid()}
           className={styles.btn}
           type="button"
           name={option}
@@ -18,7 +18,11 @@ function FeedbackOptions({options, onLeaveFeedback}) {
   );
 }
 FeedbackOptions.propTypes = {
-  options: PropTypes.array.isRequired,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      option: PropTypes.string.isRequired,
+    })
+  ),
 	onLeaveFeedback: PropTypes.func.isRequired,
 }
 

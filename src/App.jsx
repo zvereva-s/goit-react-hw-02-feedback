@@ -6,11 +6,6 @@ import Notification from 'components/Notification';
 import { Component } from 'react';
 
 export default class App extends Component {
-  static defaultProps = {
-    total: 0,
-    positivePercentage: 0,
-  }
-
   state = {
     good: 0,
     neutral: 0,
@@ -28,21 +23,21 @@ export default class App extends Component {
   };
 
   countTotalFeedback = () => {
-    this.setState(({ good, neutral, bad }) => {
-      this.total = bad + good + neutral;
-    });
-    this.countPositiveFeedbackPercentage();
+    const { bad, good, neutral } = this.state;
+    const total = bad + good + neutral;
+    return total;
   };
 
-  countPositiveFeedbackPercentage = () => {
-    this.setState(({ good }) => {
-      this.positivePercentage = Number(((good / this.total) * 100).toFixed(2));
-    });
+  countPositiveFeedbackPercentage = (total) => {
+    const { good } = this.state;
+    const positivePercentage = Number((good / total * 100).toFixed(2));
+    return positivePercentage;
   };
 
   render() {
     const { good, neutral, bad } = this.state;
-    const { total, positivePercentage } = this;
+    const total = this.countTotalFeedback();
+    const positivePercentage = this.countPositiveFeedbackPercentage(total);
     const names = Object.keys(this.state);
     
 
