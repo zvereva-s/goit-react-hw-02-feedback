@@ -18,7 +18,6 @@ export default class App extends Component {
         [name]: prevState[name] + 1,
       };
     });
-    this.countTotalFeedback();
   };
 
   countTotalFeedback = () => {
